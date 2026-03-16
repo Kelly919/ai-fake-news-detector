@@ -18,14 +18,19 @@ Online misinformation spreads rapidly across digital platforms, making it diffic
 
 ## Level 1 – System Context Diagram
 
-Users interact with the Fake News Detection System to analyze news content. The system may also interact with external datasets or APIs used to train or validate the machine learning model.
+```mermaid
+C4Context
+title System Context Diagram - Fake News Detection System
 
-Actors and Systems:
+Person(user, "User", "Submits news text for credibility analysis")
 
-* User (submits news content)
-* Fake News Detection System
-* External Data Sources
+System(system, "Fake News Detection System", "Analyzes news content using AI")
 
+System_Ext(data, "External News Data Sources", "Datasets used for training models")
+
+Rel(user, system, "Submits article text")
+Rel(system, data, "Uses datasets for model training")
+```
 ---
 
 ## Level 2 – Container Diagram
