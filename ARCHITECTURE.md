@@ -35,42 +35,46 @@ Rel(system, data, "Uses datasets for model training")
 
 ## Level 2 – Container Diagram
 
-The system consists of several containers that work together to perform the analysis.
+```mermaid
+C4Container
+title Container Diagram - Fake News Detection System
 
-Containers:
+Person(user, "User")
 
-User
-→ Web Application (Frontend Interface)
+System_Boundary(system, "Fake News Detection System") {
 
-Web Application
-→ Backend API Server
+Container(web, "Web Application", "HTML/CSS/JS", "User interface for submitting news text")
 
-Backend API Server
-→ Text Processing Module
-→ Machine Learning Classification Module
-→ Database
+Container(api, "Backend API", "Node.js / Python", "Processes requests and controls analysis")
 
-Database
-→ Stores analyzed articles and results
+Container(ml, "ML Classification Service", "Python", "Detects fake news using machine learning")
 
+Container(db, "Database", "SQL", "Stores submitted articles and results")
+
+}
+
+Rel(user, web, "Uses")
+Rel(web, api, "Sends analysis request")
+Rel(api, ml, "Requests classification")
+Rel(api, db, "Stores results")
+Rel(ml, db, "Reads training data")
+```
 ---
 
 ## Level 3 – Component Diagram
 
-Inside the backend server the system includes several components:
+```mermaid
+C4Component
+title Component Diagram - Backend API
 
-API Controller
-Handles requests from the frontend interface.
+Container(api, "Backend API")
 
-Text Preprocessing Component
-Cleans and prepares submitted text for analysis.
+Component(controller, "API Controller", "Handles user requests")
+Component(preprocess, "Text Preprocessing Module", "Cleans and prepares text")
+Component(classifier, "ML Classifier", "Predicts fake or credible")
+Component(storage, "Database Manager", "Stores results")
 
-Machine Learning Classification Component
-Processes text and predicts whether it is credible or misleading.
-
-Result Management Component
-Stores analysis results and sends feedback to the user interface.
-
-Database Manager
-Handles data storage and retrieval.
-
+Rel(controller, preprocess, "Sends text")
+Rel(preprocess, classifier, "Processed text")
+Rel(classifier, storage, "Stores result")
+```
