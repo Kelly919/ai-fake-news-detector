@@ -10,6 +10,9 @@ The goal of this system is to support media literacy and reduce the spread of mi
 
 * [System Specification](SPECIFICATION.md)
 * [System Architecture](ARCHITECTURE.md)
+* [Stakeholder Analysis](STAKEHOLDERS.md)
+* [System Requirements](REQUIREMENTS.md)
+* [Reflection](REFLECTION.md)
 
 ## Planned Features
 
