@@ -1,46 +1,58 @@
-# System Requirements Document
+# System Requirements Document (SRD)
 
 ## Functional Requirements
 
 1. The system shall allow users to submit news text for analysis.
 
-   * Acceptance: Text input is processed without errors.
+   * Stakeholder: General User
+   * Acceptance: Text input is processed without errors
 
 2. The system shall analyze submitted text using a machine learning model.
 
-   * Acceptance: Model returns classification result.
+   * Stakeholder: Developer, Researcher
+   * Acceptance: Model returns classification result
 
 3. The system shall display a credibility score to the user.
 
-   * Acceptance: Score is shown as percentage.
+   * Stakeholder: General User, Journalist
+   * Acceptance: Score is shown as percentage
 
-4. The system shall classify content as "Real" or "Fake".
+4. The system shall store analyzed articles in a database.
 
-   * Acceptance: Output label is clearly displayed.
+   * Stakeholder: Researcher, Organization
+   * Acceptance: Data is saved successfully
 
-5. The system shall store analyzed articles in a database.
+5. The system shall allow users to view previous analyses.
 
-   * Acceptance: Data is saved successfully.
+   * Stakeholder: General User
+   * Acceptance: Results can be retrieved
 
-6. The system shall allow users to view previous analyses.
+6. The system shall provide system logs for monitoring.
 
-   * Acceptance: Stored results can be retrieved.
+   * Stakeholder: System Administrator
+   * Acceptance: Logs are accessible
 
 7. The system shall preprocess text before analysis.
 
-   * Acceptance: Text is cleaned and tokenized.
+   * Stakeholder: Developer
+   * Acceptance: Text is cleaned correctly
 
-8. The system shall provide feedback messages to users.
+8. The system shall support multiple users simultaneously.
 
-   * Acceptance: Errors are clearly displayed.
+   * Stakeholder: Organization
+   * Acceptance: No crashes under load
 
-9. The system shall allow administrators to monitor system usage.
+9. The system shall provide feedback messages to users.
 
-   * Acceptance: Logs are accessible.
+   * Stakeholder: General User
+   * Acceptance: Errors are clearly displayed
 
-10. The system shall support multiple users simultaneously.
+10. The system shall allow administrators to monitor system usage.
 
-    * Acceptance: No crashes under load.
+    * Stakeholder: System Administrator
+    * Acceptance: Usage data is available
+
+
 
 
 ## Non-Functional Requirements
