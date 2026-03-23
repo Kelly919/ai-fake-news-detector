@@ -42,3 +42,35 @@
 
     * Acceptance: No crashes under load.
 
+
+## Non-Functional Requirements
+
+### Usability
+
+* The system shall have a simple and intuitive user interface.
+* The system shall provide clear feedback messages.
+
+### Deployability
+
+* The system shall be deployable on web browsers.
+* The system shall support cloud deployment.
+
+### Maintainability
+
+* The system shall include clear documentation.
+* The system shall follow modular design principles.
+
+### Scalability
+
+* The system shall support at least 1,000 concurrent users.
+
+### Security
+
+* The system shall encrypt user data using secure protocols.
+
+### Performance
+
+* The system shall return results within 2 seconds.
+
+      
+
