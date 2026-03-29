@@ -54,6 +54,10 @@ View --> ViewHistory
 Analyze --> Store
 Login --> Submit
 ```
+## Explanation
+
+The diagram includes six actors: User, Guest User, Journalist, Researcher, Fact Checker, and Admin. Each actor interacts with the system based on their role. For example, Users and Guests can submit news text and view results, while Journalists and Fact Checkers are involved in verifying and classifying news. Researchers analyze stored data, and Administrators monitor system performance and manage the database. The use cases such as "Submit News Text," "Process Text," and "Classify News" demonstrate the system’s core functionality and directly align with the functional requirements defined in the previous assignment.The relationships between use cases show how actions depend on each other. For example, submitting news includes processing text, which leads to classification and storage of results. This ensures that stakeholder concerns such as accuracy, performance, and usability are addressed.
+
 # Use Case Specifications
 
 ---
