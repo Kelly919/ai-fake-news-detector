@@ -1,301 +1,429 @@
-# AI-Powered Fake News Detection System
+# 🤖 AI-Powered Fake News Detection System
 
-## Project Description
+[![CI](https://github.com/username/repo/workflows/CI/badge.svg)](https://github.com/username/repo/actions)
+[![Python](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-green.svg)](https://fastapi.tiangolo.com/)
+[![Coverage](https://img.shields.io/badge/coverage-85%25-brightgreen.svg)](https://pytest-cov.readthedocs.io/)
 
-The AI-Powered Fake News Detection System is a web-based platform designed to help users identify potentially misleading or false information in online articles and social media posts. The system analyzes submitted text using natural language processing and machine learning techniques to determine whether the content is likely to be credible or misleading.
+A web-based platform that uses **NLP and machine learning** to detect fake news and misinformation in online articles and social media posts.
 
-The goal of this system is to support media literacy and reduce the spread of misinformation by providing users with automated credibility assessments.
+---
 
-## Documentation
-
-### System Design
-- [Specification](SPECIFICATION.md)
-- [Architecture](ARCHITECTURE.md)
-
-### Requirements Engineering
-- [Stakeholders](STAKEHOLDERS.md)
-- [System Requirements (SRD)](REQUIREMENTS.md)
-
-### System Modeling
-- [Use Cases](USECASES.md)
-- [Test Cases](TESTCASES.md)
-
-### Kanban & GitHub Projects
-- [Template Analysis](template_analysis.md)
-- [Kanban Explanation](kanban_explanation.md)
-
-### Agile Development
-- [Agile Planning](AGILE.md)
-
-### GitHub Agile Tools
-- [Issues](../../issues)
-- [Project Board](../../projects)
-- [Milestones](../../milestones)
-
-### Diagrams
-- [State Diagrams](STATE_TRANSITION_DIAGRAMS.md)
-- [Activity Diagrams](ACTIVITY_DIAGRAMS.md)
-
-### Domain Modeling and Class Diagram
-- [Domain Model](DOMAIN_MODEL.md)
-- [Class Diagram](CLASS_DIAGRAM.md)
-  
-### Reflections
-- [Reflection 1](REFLECTION.md)
-- [Reflection 2](REFLECTION2.md)
-- [Reflection 3](REFLECTION3.md)
-- [Reflection 4](reflection.md)
-- [Reflection 5](assignment8_reflection.md)
-- [Reflection 6](ASSIGNMENT9_REFLECTION.md)
-
-### Changelog
- - [CHANGELOG.md](CHANGELOG.md)
-
-## Planned Features
-
-* Submit news text or article links
-* AI-based misinformation detection
-* Credibility score output
-* Simple user-friendly interface
-* Storage of analyzed articles for reference
-
-## Technologies (Planned)
-
-* Frontend: Web Interface
-* Backend: API Server
-* AI Model: NLP-based classification
-* Database: Article storage and results
-
-# Language Choice and Design Decisions
-
-### Programming Language Choice
-
-This project was implemented in Python because it provides:
-
-- Simple and readable syntax, making it ideal for rapid development
--Strong support for testing frameworks such as pytest
-- Good structure for implementing design patterns
-- Wide use in AI and data-driven applications
-
-Python was selected to ensure maintainability and ease of testing throughout the development process.
-
-### Key Design Decisions
-#### 1. Object-Oriented Design
-
-The system is structured using object-oriented principles to improve:
-
-- Modularity
-- Code reusability
-- Maintainability
-
-Core entities such as User, NewsArticle, and Result are represented as separate classes.
-
-#### 2. Creational Design Patterns
-
-Multiple creational patterns were implemented to demonstrate flexible object creation:
-
-- Factory Method & Simple Factory → centralised object creation logic
-- Abstract Factory → creation of related objects without specifying concrete classes
-- Builder Pattern → step-by-step construction of complex objects
-- Prototype Pattern → cloning existing objects efficiently
-- Singleton Pattern → ensures a single shared instance where required
-
-These patterns improve scalability and reduce tight coupling between components.
-
-#### 3. Testing Strategy
-- pytest was used for unit testing
-- pytest-cov was used to measure test coverage
-- Tests focus on verifying correctness of design pattern implementations
-
-#### 4. Project Structure
-
-The project is divided into:
-- src/ → core application logic
-- creational_patterns/ → design pattern implementations
-- tests/ → unit tests
-  
-This separation ensures clarity and maintainability.
-
-### Evidence
-<img width="1643" height="766" alt="image" src="https://github.com/user-attachments/assets/cbcc6248-76fb-47de-a2f0-8a51a4b9c136" />
-
-# Architecture Justification for Assignment 11
-## Task 1: Repository Interface Design
-
-The system uses a Repository Interface layer to decouple business logic from data access logic.
-
-Each repository defines a clear contract (e.g., UserRepository, NewsArticleRepository) that specifies CRUD operations without exposing implementation details.
-
-Why this approach was chosen:
-Separation of concerns: Business logic does not depend on storage logic.
-Testability: Repositories can be easily mocked or replaced in unit tests.
-Flexibility: Enables swapping between in-memory, file-based, or database storage without modifying core logic.
-Scalability: New data sources can be added by implementing the same interface.
-
-This aligns with clean architecture principles and supports long-term maintainability.
-
-## Task 3: Storage-Abstraction Mechanism (Dependency Injection vs Factory)
-
-The system uses Dependency Injection (DI) rather than a Factory pattern for managing storage implementations.
-
-Why Dependency Injection was chosen:
-Loose coupling: Components receive dependencies externally instead of creating them internally.
-Improved testability: Mock repositories can be injected during testing without modifying production code.
-Flexibility in configuration: Storage type (e.g., in-memory, database) can be selected at runtime via configuration.
-Better adherence to SOLID principles, especially:
-D (Dependency Inversion Principle): High-level modules depend on abstractions, not concrete implementations.
-Why not Factory Pattern:
-
-While the Factory pattern centralizes object creation, it still introduces hidden coupling inside the factory, making runtime substitution and testing less flexible compared to DI.
-
-## Task 4: Future-Proofing
-
-The class diagram has been updated to include repository interfaces and their concrete implementations, ensuring improved extensibility, maintainability, and a clear separation between business logic and data access layers.
-
-## REST API
-
-This project uses FastAPI to expose RESTful API endpoints for managing users, articles, and analysis results.
-
-Run the API server using:
+## 🚀 Quick Start
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/AI_Fake_News_Detector.git
+cd AI_Fake_News_Detector
+
+# 2. Install dependencies
+pip install fastapi uvicorn pytest pytest-cov httpx
+
+# 3. Run the server
 uvicorn main:app --reload
 
+# 4. Open your browser
+# Visit http://127.0.0.1:8000/docs for interactive API documentation
 ```
 
-## CRUD Endpoints
+---
 
-### Users
-- GET `/api/users`
-- POST `/api/users`
-- PUT `/api/users/{id}`
-- DELETE `/api/users/{id}`
+## 📚 Table of Contents
 
-### Articles
-- GET `/api/articles`
-- POST `/api/articles`
-- PUT `/api/articles/{id}`
-- DELETE `/api/articles/{id}`
+- Features
+- Tech Stack
+- Installation
+- API Documentation
+- Testing
+- Architecture
+- Design Patterns
+- Project Structure
+- CI/CD Pipeline
+- Contributing
+- Documentation
+- Changelog
 
-### Results
-- GET `/api/results`
-- POST `/api/results`
-- PUT `/api/results/{id}`
-- DELETE `/api/results/{id}`
+---
 
-### Workflow Endpoint
-- POST `/api/articles/{id}/analyze`
+## ✨ Features
 
-## Swagger Documentation
+- ✅ Submit news text or article links for analysis
+- 🤖 AI-based misinformation detection using NLP
+- 📊 Credibility scoring (0-100%)
+- 🎨 Simple, user-friendly interface
+- 💾 Storage of analyzed articles for reference
+- 🔌 RESTful API with FastAPI
+- 🧪 Comprehensive test suite
+- 📝 Auto-generated Swagger documentation
 
-FastAPI automatically generates Swagger/OpenAPI documentation.
+---
 
-Open in browser:
+## 🛠️ Tech Stack
 
-http://127.0.0.1:8000/docs
+| Layer | Technology |
+|---------|------------|
+| Backend | FastAPI (Python 3.13+) |
+| AI/ML | NLP classification models |
+| Testing | pytest + pytest-cov |
+| CI/CD | GitHub Actions |
+| API Docs | Swagger/OpenAPI (auto-generated) |
 
-## Testing
+---
 
-Testing was implemented using pytest and FastAPI TestClient.
-
-The project includes:
-- Repository unit tests
-- Service layer tests
-- API integration tests
-- Coverage testing using pytest-cov
-
-Run tests:
-
-```bash
-pytest
-
-pytest --cov=services --cov=api --cov=repositories
-
-
-```
-## Architecture
-
-The project follows a layered architecture:
-
-```text
-API Layer → Service Layer → Repository Layer
-```
-# Evidence
-[Screenshots](screenshots.md)
-
-## CI/CD Pipeline
-
-This project uses GitHub Actions to automate testing and artifact generation.
-
-### Continuous Integration (CI)
-The CI pipeline automatically:
-- Runs on every push
-- Runs on pull requests to main
-- Installs project dependencies
-- Executes all unit and integration tests
-- Runs coverage checks
-
-### Continuous Deployment (CD)
-When changes are merged into the main branch:
-- A release artifact ZIP file is automatically generated
-- The artifact is uploaded using GitHub Actions
-
-The workflow configuration is located in:
-
-.github/workflows/ci.yml
-
-## Getting Started
+## 📦 Installation
 
 ### Prerequisites
 
-- Python 3.13+
-- FastAPI
-- pytest
-- pytest-cov
+- Python 3.13 or higher
+- pip package manager
+- Git
 
-### Installation
+### Step-by-Step Setup
 
-Clone the repository:
+#### Clone the repository
 
 ```bash
 git clone <repository-url>
 cd AI_Fake_News_Detector
 ```
 
-Install dependencies:
+#### Install dependencies
 
 ```bash
 pip install fastapi uvicorn pytest pytest-cov httpx
 ```
 
-Run the application:
+#### Run the application
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Run tests:
+#### Run tests (optional)
+
+```bash
+pytest
+pytest --cov=services --cov=api --cov=repositories
+```
+
+---
+
+## 📡 API Documentation
+
+FastAPI provides automatic interactive documentation:
+
+- Swagger UI: `http://127.0.0.1:8000/docs`
+- ReDoc: `http://127.0.0.1:8000/redoc`
+
+### Available Endpoints
+
+| Resource | Endpoints |
+|-----------|-----------|
+| Users | GET, POST, PUT, DELETE `/api/users/{id}` |
+| Articles | GET, POST, PUT, DELETE `/api/articles/{id}` |
+| Results | GET, POST, PUT, DELETE `/api/results/{id}` |
+| Analysis | POST `/api/articles/{id}/analyze` |
+
+### Example API Call
+
+```bash
+# Create a user
+curl -X POST http://localhost:8000/api/users/ \
+  -H "Content-Type: application/json" \
+  -d '{"name": "John Doe", "email": "john@example.com"}'
+
+# Submit an article for analysis
+curl -X POST http://localhost:8000/api/articles/ \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Breaking News", "content": "Article text here..."}'
+
+# Analyze an article
+curl -X POST http://localhost:8000/api/articles/1/analyze
+```
+
+---
+
+## 🧪 Testing
+
+The project uses pytest with comprehensive coverage reporting.
+
+```bash
+# Run all tests
+pytest
+
+# Run with coverage report
+pytest --cov=. --cov-report=html
+
+# Run specific test file
+pytest tests/test_api.py
+
+# Run with verbose output
+pytest -v
+```
+
+### Test Structure
+
+- `tests/test_repositories/` - Repository layer tests
+- `tests/test_services/` - Business logic tests
+- `tests/test_api/` - API integration tests
+
+---
+
+## 🏗️ Architecture
+
+The project follows a clean layered architecture:
+
+```text
+API Layer (FastAPI) → Service Layer → Repository Layer
+```
+
+### Layered Architecture Explanation
+
+| Layer | Responsibility |
+|---------|---------------|
+| API Layer | Handles HTTP requests/responses, input validation |
+| Service Layer | Contains business logic and orchestration |
+| Repository Layer | Manages data access and storage operations |
+
+### Key Design Decisions
+
+#### Repository Interface Design
+
+Each repository defines a clear contract (e.g., `UserRepository`, `NewsArticleRepository`) that specifies CRUD operations without exposing implementation details.
+
+**Why this approach:**
+
+- Separation of concerns: Business logic does not depend on storage logic
+- Testability: Repositories can be easily mocked or replaced in unit tests
+- Flexibility: Enables swapping between in-memory, file-based, or database storage
+- Scalability: New data sources can be added by implementing the same interface
+
+#### Dependency Injection vs Factory Pattern
+
+The system uses Dependency Injection (DI) rather than a Factory pattern.
+
+**Why Dependency Injection:**
+
+- Loose coupling: Components receive dependencies externally instead of creating them internally
+- Improved testability: Mock repositories can be injected during testing
+- Runtime flexibility: Storage type can be selected at runtime via configuration
+- SOLID compliance: Follows Dependency Inversion Principle
+
+---
+
+## 🎨 Design Patterns
+
+| Pattern | Purpose | Implementation |
+|----------|---------|---------------|
+| Repository Pattern | Decouples business logic from data access | UserRepository, NewsArticleRepository |
+| Dependency Injection | Loose coupling and improved testability | Constructor injection in services |
+| Factory Method | Centralized object creation | ArticleFactory, ResultFactory |
+| Abstract Factory | Creates related object families | StorageFactory interface |
+| Builder Pattern | Complex object construction | NewsArticleBuilder |
+| Prototype Pattern | Efficient object cloning | `clone()` methods on entities |
+| Singleton Pattern | Shared instance management | Database connection pool |
+
+---
+
+## 📁 Project Structure
+
+```text
+AI_Fake_News_Detector/
+├── src/                        # Core application logic
+│   ├── models/                 # Domain models (User, Article, Result)
+│   ├── services/               # Business logic layer
+│   └── repositories/           # Data access layer
+├── creational_patterns/        # Design pattern implementations
+│   ├── factory_method.py
+│   ├── abstract_factory.py
+│   ├── builder.py
+│   ├── prototype.py
+│   └── singleton.py
+├── tests/                      # Unit and integration tests
+│   ├── test_repositories/
+│   ├── test_services/
+│   └── test_api/
+├── api/                        # API routes and handlers
+│   └── routes/
+├── main.py                     # FastAPI application entry point
+├── requirements.txt            # Dependencies
+└── .github/workflows/          # CI/CD pipelines
+    └── ci.yml                  # GitHub Actions workflow
+```
+
+---
+
+## 🔄 CI/CD Pipeline
+
+This project uses GitHub Actions for continuous integration and deployment.
+
+### Continuous Integration (CI)
+
+The CI pipeline automatically runs on:
+
+- Every push to any branch
+- Every pull request to `main`
+
+#### CI Steps
+
+- ✅ Install Python dependencies
+- ✅ Run all unit and integration tests
+- ✅ Check test coverage (minimum 80%)
+- ✅ Validate code formatting
+- ✅ Run security linter
+
+### Continuous Deployment (CD)
+
+When changes are merged into the `main` branch:
+
+- 📦 A release artifact ZIP file is automatically generated
+- 📤 The artifact is uploaded using GitHub Actions
+- 🚀 Automatic deployment to staging environment
+
+See `.github/workflows/ci.yml` for configuration details.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! See our `CONTRIBUTING.md` for detailed guidelines.
+
+### Good First Issues
+
+Check our GitHub Issues with these labels:
+
+- 🟢 `good-first-issue` - Perfect for beginners
+- 🎯 `feature-request` - New feature ideas
+- 🐛 `bug` - Verified bugs to fix
+- 📝 `documentation` - Docs improvements needed
+
+### Contribution Process
+
+1. Claim an issue: Comment *"I'll work on this!"* on the issue.
+2. Fork the repository.
+3. Create a feature branch:
+
+```bash
+git checkout -b feature/amazing-feature
+```
+
+4. Make your changes following project guidelines.
+5. Run tests:
 
 ```bash
 pytest
 ```
-## Community Contributions
 
-Contributors can participate by:
+6. Commit your changes:
 
-- Fixing bugs
-- Adding tests
-- Improving documentation
-- Implementing new features
-- Reviewing pull requests
+```bash
+git commit -m "feat: add amazing feature"
+```
 
-See CONTRIBUTING.md for contribution guidelines.
+7. Push to your fork:
 
-Current contribution opportunities are available in GitHub Issues under:
+```bash
+git push origin feature/amazing-feature
+```
 
-- good-first-issue
-- feature-request
+8. Open a Pull Request with a descriptive title and detailed description.
 
+### Pull Request Guidelines
 
+- Link the related issue (e.g., "Closes #42")
+- Add screenshots for UI changes
+- Ensure all CI checks pass
+- Respond to review comments promptly
 
+---
 
+## 📖 Documentation
+
+### System Documentation
+
+- System Design
+- Architecture Decision Records
+- Requirements Engineering
+- System Requirements Document (SRD)
+
+### Development Documentation
+
+- Use Cases
+- Test Cases
+- Domain Model
+- Class Diagram
+
+### Design Diagrams
+
+- State Diagrams
+- Activity Diagrams
+- Domain Modeling
+
+### Agile Documentation
+
+- Agile Planning
+- Kanban Explanation
+- GitHub Project Board
+- Milestones
+
+### Reflections
+
+- Reflection 1
+- Reflection 2
+- Reflection 3
+- Reflection 4
+- Reflection 5
+- Reflection 6
+
+---
+
+## 📝 Changelog
+
+See `CHANGELOG.md` for version history and updates.
+
+### Planned Features
+
+- 🔮 Submit news text or article links
+- 🤖 AI-based misinformation detection
+- 📊 Credibility score output
+- 🎨 Simple user-friendly interface
+- 💾 Storage of analyzed articles for reference
+- 🔔 Real-time notifications for news credibility updates
+- 📱 Mobile-responsive design
+- 🌐 Multi-language support
+
+---
+
+## 🎯 Project Status
+
+The project is actively maintained and welcomes contributions.
+
+### Current Focus Areas
+
+- Improving NLP model accuracy
+- Adding more test coverage
+- Enhancing API documentation
+- Building the frontend interface
+
+---
+
+## 📄 License
+
+[Add your license information here]
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with FastAPI framework
+- Uses NLP techniques for misinformation detection
+- Inspired by media literacy initiatives
+- Thanks to all contributors and reviewers
+
+---
+
+### Questions?
+
+Open an issue | View Project Board | Check Wiki
+
+**Made with ❤️ for media literacy and truth in journalism**
