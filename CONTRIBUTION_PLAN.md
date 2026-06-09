@@ -5,21 +5,21 @@ Repository: https://github.com/Kelly919/smart-campus-connect.git
 
 Issue: 19
 
-Planned Contribution: 
+Planned Contribution: Adding additional unit tests for CourseService
 
 ## Project 2
 Repository: https://github.com/Kelly919/hospital-vital-monitoring-system.git
 
 Issue: 39
 
-Planned Contribution:
+Planned Contribution: Improving README formatting and organization
 
 ## Project 3
-Repository:
+Repository: https://github.com/Kelly919/hospitality-management-system.git
 
-Issue:
+Issue: 49
 
-Planned Contribution:
+Planned Contribution: Adding docstring to create_booking() method
 
 ## Strategy
 
